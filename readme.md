@@ -1,0 +1,3 @@
+This is a very rough start that doesn't work yet, but the idea is to collect GTFS data from Swiftly, and then figure out how it can be used to answer questions about Baltimore's (or any other city's) transportation network.
+
+I started with the python path... and then realized that would not be fast enough, so I am redoing it with C++. Let me know if you are interested in getting involved. Its just a side project for me right now. 
