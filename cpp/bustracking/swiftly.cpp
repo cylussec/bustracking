@@ -1,16 +1,15 @@
 #include "stdafx.h"
 
+#include "rapidjson/document.h"
+#include "results.h"
 #include "swiftly.h"
 
-
-
-
-Swiftly::RestInterface::RestInterface(const char* xhost, const char* xport, std::string xapikey)
+Swiftly::RestInterface::RestInterface(const char* _host, const char* _port, std::string _apikey, std::string _agencyid) :
+	host(_host),
+	port(_port),
+	apikey(_apikey),
+	agencyid(_agencyid)
 {
-	//http::server instance;
-	host = xhost;
-	port = xport;
-	apikey = xapikey;
 	version = 11;
 }
 
@@ -26,15 +25,37 @@ int Swiftly::RestInterface::test(http::response<http::dynamic_body>& res)
 
 int Swiftly::RestInterface::agency_info(http::response<http::dynamic_body>& res)
 {
-	///info/{}
-	std::string target("/info/");
-	target.append(apikey);
-	return getrestcall(res, target);
+	std::string target = "/info/" + agencyid;
+
+	if (EXIT_FAILURE == getrestcall(res, target)) {
+		return EXIT_FAILURE;
+	}
+	
+	rapidjson::Document document;
+	document.Parse(boost::beast::buffers_to_string(res.body().data()).c_str());
+	assert(document.HasMember("success"));
+
+	SwiftlyResult<AgencyInfo> ai;
+	ai.agencykey = document["data"]["name"].GetString();
+	ai.success = document["success"].GetBool();
+	ai.route = document["route"].GetString();
+	ai.data.url = document["data"]["url"].GetString();
+	ai.data.timezone = document["data"]["timezone"].GetString();
+	ai.data.name = document["data"]["agencyKey"].GetString();
+	ai.data.extent.maxLat = document["data"]["extent"]["maxLat"].GetFloat();
+	ai.data.extent.maxLong = document["data"]["extent"]["maxLon"].GetFloat();
+	ai.data.extent.minLat = document["data"]["extent"]["minLat"].GetFloat();
+	ai.data.extent.minLong = document["data"]["extent"]["minLon"].GetFloat();
+
 }
 
 int Swiftly::RestInterface::agency_routes(http::response<http::dynamic_body>& res)
 {
-	///info/{}/routes
+	std::string target = "/info/" + agencyid + "/routes";
+
+	if (EXIT_FAILURE == getrestcall(res, target)) {
+		return EXIT_FAILURE;
+	}
 	return 0;
 }
 
@@ -102,7 +123,7 @@ int Swiftly::RestInterface::getrestcall(http::response<http::dynamic_body>& res,
 		stream.handshake(ssl::stream_base::client);
 
 		// Set up an HTTP GET request message
-		http::request<http::string_body> req{ http::verb::get, target, version };
+		http::request<http::dynamic_body> req{ http::verb::get, target, version };
 		req.set(http::field::host, host);
 		req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 		req.set(http::field::authorization, apikey);
@@ -112,9 +133,6 @@ int Swiftly::RestInterface::getrestcall(http::response<http::dynamic_body>& res,
 
 		// This buffer is used for reading and must be persisted
 		boost::beast::flat_buffer buffer;
-
-		// Declare a container to hold the response
-		http::response<http::dynamic_body> res;
 
 		// Receive the HTTP response
 		http::read(stream, buffer, res);

@@ -24,7 +24,7 @@ namespace Swiftly
 	class RestInterface
 	{
 	public:
-		RestInterface(const char* xhost, const char* xport, std::string xapikey);
+		RestInterface(const char* _host, const char* _port, std::string _apikey, std::string _agencyid);
 		~RestInterface();
 		int test(http::response<http::dynamic_body>& res);
 		int agency_info(http::response<http::dynamic_body>& res);
@@ -37,10 +37,11 @@ namespace Swiftly
 	private:
 		const char* host;
 		std::string apikey;
+		std::string agencyid;
 		const char* port;
 		int version; 
 		int getrestcall(http::response<http::dynamic_body>& res, std::string target);
-		std::string buildquerystring(std::map< elements);
+		//std::string buildquerystring(std::map< elements);
 
 	};
 
