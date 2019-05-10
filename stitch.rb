@@ -8,11 +8,10 @@ def register(params)
 end
 
 def filter(event)
-    puts "#{Time.now} Stitch"
 
     if not (event.get('average_speed').nil? or event.get('time_between_stops').nil?)
         #puts "skipping #{event.get('trip_id')} :: #{event.get('stop_sequence')}"
-        continue
+        return []
     end
 
     trip_id = event.get('trip_id')
@@ -39,7 +38,7 @@ def filter(event)
     #puts "Got distance #{event.get('shape_dist_traveled')} and time #{event.get('actual_arrival_time')}"
 
     if not (event.get('shape_dist_traveled_since_prev').nil? or event.get('time_since_last_stop').nil? or event.get('segment_speed').nil?)
-        continue
+        return []
     end
 
     last_stop_distance, last_stop_time = find_last_stop($bus_trip_data[trip_id], stop_sequence)
@@ -55,9 +54,6 @@ def filter(event)
         event.set('segment_speed', (event.get('shape_dist_traveled_since_prev')*3600/event.get('time_since_last_stop')))
     end
 
-    #puts event.get('shape_dist_traveled_since_prev')
-    #puts event.get('time_since_last_stop')
-
     return [event]
 end
 
@@ -67,7 +63,7 @@ def find_last_stop(bus_run_data, stop_sequence)
         if bus_run_data[i].nil?
             next
         end
-        if not (bus_run_data[i]['distance'].nil? and bus_run_data[i]['stop_time'].nil?)
+        if not bus_run_data[i]['distance'].nil? and not bus_run_data[i]['stop_time'].nil?
             #puts "find_last_stop returning #{bus_run_data[i]['distance']}, #{bus_run_data[i]['stop_time']}"
             return bus_run_data[i]['distance'].to_f, bus_run_data[i]['stop_time'].to_i
         end
