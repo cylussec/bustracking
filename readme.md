@@ -43,6 +43,11 @@ Change this: /opt/bitnami/logstash/config/jvm.options
 
 Then start the postprocessor pulling in the old data and restart everything
 Then switch the host, schedule and src index back
+Then import all of the saved objects from the export.json file
+
+=======================
+
+AWS Network security:
 
 HTTP
 TCP
