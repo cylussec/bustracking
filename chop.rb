@@ -149,6 +149,8 @@ def filter(event)
                         :stop_lon => stop['stop_lon'].to_f,
                         :scheduled_arrival_time => scheduled_arrival_time,
                         :actual_arrival_time => actual_arrival_time,
+                        :actual_arrival_time_dow => Time.at(actual_arrival_time).hour,
+                        :actual_arrival_time_hour => Time.at(actual_arrival_time).wday,
                         :arrival_time_diff => arrival_time_diff,
                         :shape_dist_traveled => stop_time['shape_dist_traveled'],
                         :schedule_relationship => trip_data['schedule_relationship']
