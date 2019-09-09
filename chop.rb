@@ -1,5 +1,8 @@
+# Takes in the raw Swiftly data and generates logstash events
+
 require 'csv'
 require 'date'
+
 
 SCHEDULED = 0
 CANCELED = 3
@@ -46,6 +49,29 @@ def register(params)
     end
 end
 
+# Takes a time in the format hh:mm:ss as well as the date (at the beginning of the route) and converts it to epoc time. 
+# It also accepts times like 25:45:38, indicating the route operated past midnight, and corrects the date.
+#
+# Returns an integer of the epoc time
+def normalize_date(input_time, start_date):
+    begin
+        timesplit = input_time.split(':')
+    rescue NoMethodError
+        puts "ERROR: NoMethodError - stop_time"
+    end
+
+    hour = timesplit[0].to_i
+    minute = timesplit[1].to_i
+    second = timesplit[2].to_i
+
+    realdate = start_date.to_i
+    if hour > 23
+      realdate += 1
+      hour -= 24
+    end
+    datestr = realdate.to_s + ' ' + hour.to_s + ':' + minute.to_s + ':' + second.to_s + '  -0400'
+    return DateTime.strptime(mystr, '%Y%m%d %k:%M:%S %z').to_time.to_i   
+
 # the filter method receives an event and must return a list of events.
 # Dropping an event means not including it in the return array,
 # while creating new ones only requires you to add a new instance of
@@ -59,104 +85,144 @@ def filter(event)
     end
     
     event.get('entity').each do |trip_update|
-        trip_data = trip_update['trip_update']['trip']
-        trip = @trips.detect{ |trip| trip['trip_id'] == trip_data['trip_id'] }
-        if trip.nil?
-            trip = Hash.new
-            puts "#{Time.now} ERROR: trip_id #{trip_id} not found"
+        swiftly_tripdata = trip_update['trip_update']['trip']
+
+        # Get trip data from GTFS sources
+        gtfs_tripdata = @trips.detect{ |trip| trip['trip_id'] == swiftly_tripdata['trip_id'] }
+        if gtfs_tripdata.nil?
+            puts "#{Time.now} ERROR: trip_id #{swiftly_tripdata['trip_id']} not found"
+            next
         end
 
-        if trip_data['schedule_relationship'] == CANCELED
-            aggregate_id = trip_data['trip_id'].to_s + '-' + Time.now.strftime('%Y%m%d')
-            new_array.push LogStash::Event.new({
-                    :aggregate_id => aggregate_id,
-                    :schedule_relationship => trip_data['schedule_relationship']
-                })
-        else
-            route = @routes.detect{ |route| route['route_id'] == trip_data['route_id'] }
-            if route.nil?
-                route = Hash.new
-                puts "#{Time.now} ERROR: route_id #{trip_data['route_id']} not found"
-            end
+        # Get route data from GTFS sources
+        gtfs_routedata = @routes.detect{ |route| route['route_id'] == gtfs_tripdata['route_id'] }
+        if gtfs_routedata.nil?
+            puts "#{Time.now} ERROR: route_id #{swiftly_tripdata['route_id']} not found"
+            next
+        end
 
-            start_date = trip_data['start_date']
-            if start_date.nil?
-                puts "#{Time.now} WARNING: Start date not found"
+        trip_id = gtfs_tripdata['trip_id'].to_s
+
+        if swiftly_tripdata['schedule_relationship'] == CANCELED
+            # Lets fill in all of the stops in case the trip is uncancelled, and to have complete data
+            start_date = Time.at(trip_update['trip_update']['timestamp']).to_datetime.strftime("%Y%m%d")
+            stop_time_updates = @stop_times.select{ |st| st['trip_id'] == trip_id }
+
+            stop_seq_id = 1
+            while true:
+                gtfs_stoptimedata = @stop_times.detect{ |stop_times| stop_times['trip_id'] == trip_id and stop_times['stop_sequence'] == stop_seq_id}
+                if gtfs_stoptimedata.nil?
+                    # we have looped through all stops, time to break the loop
+                    break
+                end
+
+                # Get stop data from GTFS sources
+                gtfs_stopdata = @stops.detect{ |stop| stop['stop_id'] == gtfs_stoptimedata['stop_id'] }
+                if gtfs_stopdata.nil?
+                    puts "#{Time.now} ERROR: stop_id #{stop_id} not found"
+                    next
+                end
+
+                new_array.push LogStash::Event.new({
+                    :aggregate_id => trip_id + '-'  + start_date + '-' + gtfs_stoptimedata['stop_id'].to_s,
+                    :route_id => gtfs_routedata['route_id'].to_i,
+                    :trip_id => trip_id.to_i,
+                    :stop_id => gtfs_stoptimedata['stop_id'].to_i,
+                    :stop_sequence => stop_seq_id.to_i,
+                    :route_short_name => gtfs_routedata['route_short_name'].to_s,
+                    :route_long_name => gtfs_routedata['route_long_name'].to_s,
+                    :route_color => gtfs_routedata['route_color'].to_s,
+                    :route_text_color => gtfs_routedata['route_text_color'].to_s,
+                    :shape_id => gtfs_tripdata['shape_id'].to_s,
+                    :trip_headsign => gtfs_tripdata['trip_headsign'],
+                    :trip_short_name => gtfs_tripdata['trip_short_name'],
+                    :direction_id => gtfs_tripdata['direction_id'],
+                    :route_desc => gtfs_routedata['route_desc'],
+                    :route_type => gtfs_routedata['route_type'],
+                    :stop_desc => gtfs_stopdata['stop_desc'],
+                    :stop_name => gtfs_stopdata['stop_name'],
+                    :stop_lat => gtfs_stopdata['stop_lat'].to_f,
+                    :stop_lon => gtfs_stopdata['stop_lon'].to_f,
+                    :scheduled_arrival_time => normalize_date(gtfs_stoptimedata['arrival_time'], start_date),
+                    :actual_arrival_time => 0,
+                    :actual_arrival_time_dow => 0,
+                    :actual_arrival_time_hour => 0,
+                    :arrival_time_diff => 0,
+                    :shape_dist_traveled => gtfs_stoptimedata['shape_dist_traveled'],
+                    :schedule_relationship => swiftly_tripdata['schedule_relationship']
+                })
+                stop_seq_id += 1
+            end
+            next
+        end
+
+        start_date = swiftly_tripdata['start_date']
+        if start_date.nil?
+            puts "#{Time.now} WARNING: Start date not found"
+            next
+        end
+        stop_time_updates = trip_update['trip_update']['stop_time_update']
+  
+        stop_time_updates.each do |stop_time_update|
+            stop_id = stop_time_update['stop_id'].to_s
+
+            # Get stop data from GTFS sources
+            gtfs_stopdata = @stops.detect{ |stop| stop['stop_id'] == stop_id }
+            if gtfs_stopdata.nil?
+                puts "#{Time.now} ERROR: stop_id #{stop_id} not found"
                 next
             end
-            pre_aggregate_id = trip_data['trip_id'].to_s + '-'  + start_date
-            trip_update['trip_update']['stop_time_update'].each do |stop_time_update|
-                            aggregate_id = pre_aggregate_id + '-' + stop_time_update['stop_id'].to_s
-                            stop_id = stop_time_update['stop_id'].to_s
-                stop_sequence = stop_time_update['stop_sequence'].to_s
-                route_id = route['route_id'].to_s
-                route_short_name = route['route_short_name'].to_s
-                route_long_name = route['route_long_name'].to_s
-                route_color = route['route_color'].to_s
-                route_text_color = route['route_text_color'].to_s
-                shape_id = trip['shape_id'].to_s
-                trip_id = trip['trip_id'].to_s
 
-                stop_time_id = trip['trip_id'].to_s + '-' + stop_time_update['stop_sequence'].to_s
-                stop = @stops.detect{ |stop| stop['stop_id'] == stop_id }
-                if stop.nil?
-                    stop = Hash.new
-                    puts "#{Time.now} ERROR: stop_id #{stop_id} not found"
-                end
-
-                stop_time = @stop_times[stop_time_id]
-                if stop_time.nil?
-                    puts "#{Time.now} ERROR: stop_time_id #{stop_time_id} not found"
-                    stop_time = Hash.new
-                end
-                
-                if !stop_time_update['arrival'].nil? 
-                    actual_arrival_time = stop_time_update['arrival']['time'].to_i
-                    scheduled_arrival_time = stop_time['arrival_time']
-                    timesplit = scheduled_arrival_time.split(':')
-                    hour = timesplit[0].to_i
-                    minute = timesplit[1].to_i
-                    second = timesplit[2].to_i
-                    realdate = start_date.to_i
-                    if hour > 23
-                      realdate += 1
-                      hour -= 24
-                    end
-                    realtime = hour.to_s + ':' + minute.to_s + ':' + second.to_s
-                    mystr = realdate.to_s + ' ' + realtime + '  -0400'
-                    mydate = DateTime.strptime(mystr, '%Y%m%d %k:%M:%S %z')
-                    scheduled_arrival_time = mydate.to_time.to_i            
-                    arrival_time_diff = actual_arrival_time - scheduled_arrival_time
-                    new_array.push LogStash::Event.new({
-                        :aggregate_id => aggregate_id,
-                        :route_id => route_id.to_i,
-                        :trip_id => trip_id.to_i,
-                        :stop_id => stop_id.to_i,
-                        :stop_sequence => stop_sequence.to_i,
-                        :route_short_name => route_short_name,
-                        :route_long_name => route_long_name,
-                        :route_color => route_color,
-                        :route_text_color => route_text_color,
-                        :shape_id => shape_id,
-                        :trip_headsign => trip['trip_headsign'],
-                        :trip_short_name => trip['trip_short_name'],
-                        :direction_id => trip['direction_id'],
-                        :route_desc => route['route_desc'],
-                        :route_type => route['route_type'],
-                        :stop_desc => stop['stop_desc'],
-                        :stop_name => stop['stop_name'],
-                        :stop_lat => stop['stop_lat'].to_f,
-                        :stop_lon => stop['stop_lon'].to_f,
-                        :scheduled_arrival_time => scheduled_arrival_time,
-                        :actual_arrival_time => actual_arrival_time,
-                        :actual_arrival_time_dow => Time.at(actual_arrival_time).hour,
-                        :actual_arrival_time_hour => Time.at(actual_arrival_time).wday,
-                        :arrival_time_diff => arrival_time_diff,
-                        :shape_dist_traveled => stop_time['shape_dist_traveled'],
-                        :schedule_relationship => trip_data['schedule_relationship']
-                    })
-                end
+            stop_time_id = trip_id + '-' + stop_time_update['stop_sequence'].to_s
+            stop_time = @stop_times[stop_time_id]
+            if stop_time.nil?
+                puts "#{Time.now} ERROR: stop_time_id #{stop_time_id} not found"
+                next
             end
+
+            scheduled_arrival_time  = normalize_date(stop_time['arrival_time'], start_date)
+            
+            if !stop_time_update['arrival'].nil? 
+                actual_arrival_time = stop_time_update['arrival']['time'].to_i    
+                arrival_time_diff = actual_arrival_time - scheduled_arrival_time
+                actual_arrival_hour = Time.at(actual_arrival_time).hour
+                actual_arrival_wday = Time.at(actual_arrival_time).wday
+            else
+                puts "Unable to get arrival time for trip_id: #{trip_id}, route_id #{gtfs_routedata['route_id'].to_i}"
+                actual_arrival_time = 0
+                arrival_time_diff = 0
+                actual_arrival_hour = 0
+                actual_arrival_wday = 0
+            end
+
+            new_array.push LogStash::Event.new({
+                :aggregate_id => trip_id + '-'  + start_date + '-' + stop_time_update['stop_id'].to_s,
+                :route_id => gtfs_routedata['route_id'].to_i,
+                :trip_id => trip_id.to_i,
+                :stop_id => stop_id.to_i,
+                :stop_sequence => stop_time_update['stop_sequence'].to_i,
+                :route_short_name => gtfs_routedata['route_short_name'].to_s,
+                :route_long_name => gtfs_routedata['route_long_name'].to_s,
+                :route_color => gtfs_routedata['route_color'].to_s,
+                :route_text_color => gtfs_routedata['route_text_color'].to_s,
+                :shape_id => gtfs_tripdata['shape_id'].to_s,
+                :trip_headsign => gtfs_tripdata['trip_headsign'],
+                :trip_short_name => gtfs_tripdata['trip_short_name'],
+                :direction_id => gtfs_tripdata['direction_id'],
+                :route_desc => gtfs_routedata['route_desc'],
+                :route_type => gtfs_routedata['route_type'],
+                :stop_desc => gtfs_stopdata['stop_desc'],
+                :stop_name => gtfs_stopdata['stop_name'],
+                :stop_lat => gtfs_stopdata['stop_lat'].to_f,
+                :stop_lon => gtfs_stopdata['stop_lon'].to_f,
+                :scheduled_arrival_time => scheduled_arrival_time,
+                :actual_arrival_time => actual_arrival_time,
+                :actual_arrival_time_dow => actual_arrival_wday,
+                :actual_arrival_time_hour => actual_arrival_hour,
+                :arrival_time_diff => arrival_time_diff,
+                :shape_dist_traveled => stop_time['shape_dist_traveled'],
+                :schedule_relationship => swiftly_tripdata['schedule_relationship']
+            })
         end
     end
     return new_array
