@@ -53,7 +53,7 @@ end
 # It also accepts times like 25:45:38, indicating the route operated past midnight, and corrects the date.
 #
 # Returns an integer of the epoc time
-def normalize_date(input_time, start_date):
+def normalize_date(input_time, start_date)
     begin
         timesplit = input_time.split(':')
     rescue NoMethodError
@@ -70,7 +70,8 @@ def normalize_date(input_time, start_date):
       hour -= 24
     end
     datestr = realdate.to_s + ' ' + hour.to_s + ':' + minute.to_s + ':' + second.to_s + '  -0400'
-    return DateTime.strptime(mystr, '%Y%m%d %k:%M:%S %z').to_time.to_i   
+    return DateTime.strptime(datestr, '%Y%m%d %k:%M:%S %z').to_time.to_i   
+end
 
 # the filter method receives an event and must return a list of events.
 # Dropping an event means not including it in the return array,
@@ -109,10 +110,12 @@ def filter(event)
             stop_time_updates = @stop_times.select{ |st| st['trip_id'] == trip_id }
 
             stop_seq_id = 1
-            while true:
-                gtfs_stoptimedata = @stop_times.detect{ |stop_times| stop_times['trip_id'] == trip_id and stop_times['stop_sequence'] == stop_seq_id}
+            while true
+                stop_time_id = trip_id + '-' + stop_seq_id.to_s
+                gtfs_stoptimedata = @stop_times[stop_time_id]
                 if gtfs_stoptimedata.nil?
-                    # we have looped through all stops, time to break the loop
+                    # We found the non existant stop 
+                    puts "#{Time.now} ERROR: stop_time_id #{stop_time_id} not found"
                     break
                 end
 
@@ -174,16 +177,17 @@ def filter(event)
             end
 
             stop_time_id = trip_id + '-' + stop_time_update['stop_sequence'].to_s
-            stop_time = @stop_times[stop_time_id]
-            if stop_time.nil?
+            gtfs_stoptimedata = @stop_times[stop_time_id]
+            if gtfs_stoptimedata.nil?
                 puts "#{Time.now} ERROR: stop_time_id #{stop_time_id} not found"
                 next
             end
 
-            scheduled_arrival_time  = normalize_date(stop_time['arrival_time'], start_date)
+            scheduled_arrival_time  = normalize_date(gtfs_stoptimedata['arrival_time'], start_date)
             
-            if !stop_time_update['arrival'].nil? 
-                actual_arrival_time = stop_time_update['arrival']['time'].to_i    
+            arrival = (stop_time_update['arrival'] or stop_time_update['departure']) 
+            if !arrival.nil? 
+                actual_arrival_time = arrival['time'].to_i    
                 arrival_time_diff = actual_arrival_time - scheduled_arrival_time
                 actual_arrival_hour = Time.at(actual_arrival_time).hour
                 actual_arrival_wday = Time.at(actual_arrival_time).wday
@@ -220,7 +224,7 @@ def filter(event)
                 :actual_arrival_time_dow => actual_arrival_wday,
                 :actual_arrival_time_hour => actual_arrival_hour,
                 :arrival_time_diff => arrival_time_diff,
-                :shape_dist_traveled => stop_time['shape_dist_traveled'],
+                :shape_dist_traveled => gtfs_stoptimedata['shape_dist_traveled'],
                 :schedule_relationship => swiftly_tripdata['schedule_relationship']
             })
         end
