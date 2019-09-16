@@ -70,18 +70,6 @@
     }
   },
   {
-    "_id": "35913e70-7070-11e9-bc93-d7314667393b",
-    "_type": "index-pattern",
-    "_source": {
-      "title": "gtfs-data",
-      "timeFieldName": "@timestamp",
-      "fields": "[{\"name\":\"@timestamp\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"@uuid\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"@uuid.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"@version\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"@version.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"actual_arrival_time\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"actual_arrival_time_dow\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"actual_arrival_time_hour\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"aggregate_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"aggregate_id.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"arrival_time_diff\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"date_day_of_week\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"date_hour\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"day_of_week\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"direction_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"direction_id.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"headway\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.host\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.host.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.request.headers.Authorization\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.request.headers.Authorization.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.request.method\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.request.method.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.request.url\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.request.url.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.error\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.error.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.request.headers.Authorization\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.request.headers.Authorization.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.request.method\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.request.method.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.request.url\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.request.url.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.runtime_seconds\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"location.lat\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"location.lon\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_color\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_color.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_long_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_long_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_short_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_short_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_text_color\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_text_color.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_type.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"schedule_relationship\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"scheduled_arrival_time\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"segment_speed\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"shape_dist_traveled\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"shape_dist_traveled.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"shape_dist_traveled_since_prev\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"shape_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"shape_id.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"stop_id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"stop_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"stop_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"stop_sequence\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"tags\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"tags.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"time_since_last_stop\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"trip_headsign\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"trip_headsign.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"trip_id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true}]"
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
     "_id": "df1820d0-7327-11e9-bc93-d7314667393b",
     "_type": "visualization",
     "_source": {
@@ -235,18 +223,18 @@
     }
   },
   {
-    "_id": "f2a5b760-732d-11e9-bc93-d7314667393b",
+    "_id": "e384d440-73ec-11e9-bc93-d7314667393b",
     "_type": "dashboard",
     "_source": {
-      "title": "Bus Dashboard",
+      "title": "OTP Dashboard",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":7,\"i\":\"1\"},\"id\":\"c37adda0-7137-11e9-bc93-d7314667393b\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":52,\"w\":24,\"h\":15,\"i\":\"2\"},\"id\":\"5171e730-7137-11e9-bc93-d7314667393b\",\"panelIndex\":\"2\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":22,\"w\":24,\"h\":15,\"i\":\"3\"},\"id\":\"3c6a3a20-7139-11e9-bc93-d7314667393b\",\"panelIndex\":\"3\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":67,\"w\":24,\"h\":15,\"i\":\"4\"},\"id\":\"c9ac2f10-7139-11e9-bc93-d7314667393b\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":37,\"w\":24,\"h\":15,\"i\":\"5\"},\"id\":\"6c52ead0-731d-11e9-bc93-d7314667393b\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":82,\"w\":24,\"h\":15,\"i\":\"6\"},\"id\":\"0d064a80-731e-11e9-bc93-d7314667393b\",\"panelIndex\":\"6\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":52,\"w\":24,\"h\":15,\"i\":\"7\"},\"id\":\"df1820d0-7327-11e9-bc93-d7314667393b\",\"panelIndex\":\"7\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":67,\"w\":24,\"h\":15,\"i\":\"8\"},\"id\":\"df7a7d60-732d-11e9-bc93-d7314667393b\",\"panelIndex\":\"8\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":22,\"w\":24,\"h\":15,\"i\":\"9\"},\"id\":\"dea3bc10-7393-11e9-bc93-d7314667393b\",\"panelIndex\":\"9\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":37,\"w\":24,\"h\":15,\"i\":\"10\"},\"id\":\"dea3bc10-7393-11e9-bc93-d7314667393b\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":7,\"w\":24,\"h\":15,\"i\":\"11\"},\"id\":\"bb73ae00-7396-11e9-bc93-d7314667393b\",\"panelIndex\":\"11\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":7,\"w\":24,\"h\":15,\"i\":\"12\"},\"id\":\"e96a7eb0-7396-11e9-bc93-d7314667393b\",\"panelIndex\":\"12\",\"type\":\"visualization\",\"version\":\"6.7.1\"}]",
+      "panelsJSON": "[{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":15,\"w\":24,\"h\":15,\"i\":\"1\"},\"id\":\"73f90840-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":15,\"w\":24,\"h\":15,\"i\":\"2\"},\"id\":\"abb4f4f0-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"2\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":30,\"w\":24,\"h\":15,\"i\":\"3\"},\"id\":\"fb4ab6f0-73ea-11e9-bc93-d7314667393b\",\"panelIndex\":\"3\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":30,\"w\":24,\"h\":15,\"i\":\"4\"},\"id\":\"8ffdc5c0-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":45,\"w\":24,\"h\":15,\"i\":\"5\"},\"id\":\"7d3b5520-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":45,\"w\":24,\"h\":15,\"i\":\"6\"},\"id\":\"6dfa5830-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"6\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":60,\"w\":24,\"h\":15,\"i\":\"7\"},\"id\":\"866b5280-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"7\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":60,\"w\":24,\"h\":15,\"i\":\"8\"},\"id\":\"fb8a1470-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"8\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":75,\"w\":24,\"h\":15,\"i\":\"9\"},\"id\":\"fb4b4140-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"9\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":75,\"w\":24,\"h\":15,\"i\":\"10\"},\"id\":\"a35789d0-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":90,\"w\":24,\"h\":15,\"i\":\"11\"},\"id\":\"91a77390-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"11\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":90,\"w\":24,\"h\":15,\"i\":\"12\"},\"id\":\"7f7a0510-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"12\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":105,\"w\":24,\"h\":15,\"i\":\"13\"},\"id\":\"a4dc7190-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"13\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":105,\"w\":24,\"h\":15,\"i\":\"14\"},\"id\":\"20ad3890-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"14\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":120,\"w\":24,\"h\":15,\"i\":\"15\"},\"id\":\"bd8b69d0-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"15\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":120,\"w\":24,\"h\":15,\"i\":\"16\"},\"id\":\"999389d0-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"16\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":135,\"w\":24,\"h\":15,\"i\":\"17\"},\"id\":\"c53c6850-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"17\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":135,\"w\":24,\"h\":15,\"i\":\"18\"},\"id\":\"774e3140-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"18\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":150,\"w\":24,\"h\":15,\"i\":\"19\"},\"id\":\"d107f820-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"19\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":150,\"w\":24,\"h\":15,\"i\":\"20\"},\"id\":\"293c6210-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"20\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":165,\"w\":24,\"h\":15,\"i\":\"21\"},\"id\":\"de20a160-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"21\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":180,\"w\":24,\"h\":15,\"i\":\"22\"},\"id\":\"1bfc1720-73ed-11e9-bc93-d7314667393b\",\"panelIndex\":\"22\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":180,\"w\":24,\"h\":15,\"i\":\"23\"},\"id\":\"38781260-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"23\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"gridData\":{\"x\":24,\"y\":165,\"w\":24,\"h\":15,\"i\":\"24\"},\"version\":\"6.7.1\",\"panelIndex\":\"24\",\"type\":\"visualization\",\"id\":\"74d8a7f0-73ed-11e9-bc93-d7314667393b\",\"embeddableConfig\":{}},{\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"25\"},\"version\":\"6.7.1\",\"panelIndex\":\"25\",\"type\":\"visualization\",\"id\":\"e96a7eb0-7396-11e9-bc93-d7314667393b\",\"embeddableConfig\":{}},{\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"26\"},\"version\":\"6.7.1\",\"panelIndex\":\"26\",\"type\":\"visualization\",\"id\":\"bb73ae00-7396-11e9-bc93-d7314667393b\",\"embeddableConfig\":{}}]",
       "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"key\":\"@timestamp\",\"negate\":false,\"params\":{\"gte\":\"2019-04-01\",\"lt\":\"2019-04-30\"},\"type\":\"range\",\"value\":\"April 1st 2019, 00:00:00.000 to April 30th 2019, 00:00:00.000\"},\"range\":{\"@timestamp\":{\"gte\":\"2019-04-01\",\"lt\":\"2019-04-30\"}}}]}"
+        "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"range\",\"key\":\"@timestamp\",\"value\":\"April 1st 2019, 00:00:00.000 to May 1st 2019, 00:00:00.000\",\"params\":{\"gte\":\"2019-04-01\",\"lt\":\"2019-05-01\"}},\"range\":{\"@timestamp\":{\"gte\":\"2019-04-01\",\"lt\":\"2019-05-01\"}},\"$state\":{\"store\":\"appState\"}}]}"
       }
     },
     "_meta": {
@@ -258,7 +246,7 @@
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Green (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Green (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "visState": "{\"title\":\"[OTP] Green (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -271,11 +259,28 @@
     }
   },
   {
+    "_id": "8ffdc5c0-73ec-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Brown (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] Brown (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink brown\",\"params\":{\"query\":\"citylink brown\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink brown\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
     "_id": "7d3b5520-73eb-11e9-bc93-d7314667393b",
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Gold (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Gold (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "visState": "{\"title\":\"[OTP] Gold (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -288,33 +293,16 @@
     }
   },
   {
-    "_id": "73f90840-73eb-11e9-bc93-d7314667393b",
+    "_id": "6dfa5830-73ec-11e9-bc93-d7314667393b",
     "_type": "visualization",
     "_source": {
-      "title": "[OTP] Blue (-1 to 5)",
-      "visState": "{\"aggs\":[{\"enabled\":true,\"id\":\"1\",\"params\":{\"field\":\"headway\"},\"schema\":\"metric\",\"type\":\"sum\"},{\"enabled\":true,\"id\":\"2\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]},\"schema\":\"segment\",\"type\":\"range\"}],\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"title\":\"[OTP] Blue (-1 to 5)\",\"type\":\"pie\"}",
+      "title": "[OTP] Gold (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] Gold (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink blue\",\"params\":{\"query\":\"citylink blue\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink blue\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "91a77390-73eb-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Navy (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Navy (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink navy\",\"params\":{\"query\":\"citylink navy\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink navy\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink gold\",\"params\":{\"query\":\"citylink gold\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink gold\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
       }
     },
     "_meta": {
@@ -326,7 +314,7 @@
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Brown (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Brown (-1 to 5)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "visState": "{\"title\":\"[OTP] Brown (-1 to 5)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -339,16 +327,169 @@
     }
   },
   {
-    "_id": "bb73ae00-7396-11e9-bc93-d7314667393b",
+    "_id": "e96a7eb0-7396-11e9-bc93-d7314667393b",
     "_type": "visualization",
     "_source": {
-      "title": "[OTP] All (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] All (-1 to 5)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "title": "[OTP] All (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] All (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "1bfc1720-73ed-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Orange (-1 to 5)",
+      "visState": "{\"title\":\"[OTP] Orange (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink orange\",\"params\":{\"query\":\"citylink orange\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink orange\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "38781260-73ec-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Orange (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] Orange (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink Orange\",\"params\":{\"query\":\"citylink Orange\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink Orange\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "fb8a1470-73eb-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Green (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] Green (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink green\",\"params\":{\"query\":\"citylink green\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink green\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "91a77390-73eb-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Navy (-1 to 5)",
+      "visState": "{\"title\":\"[OTP] Navy (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink navy\",\"params\":{\"query\":\"citylink navy\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink navy\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "73f90840-73eb-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Blue (-1 to 5)",
+      "visState": "{\"title\":\"[OTP] Blue (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink blue\",\"params\":{\"query\":\"citylink blue\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink blue\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "7f7a0510-73ec-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Navy (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] Navy (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink navy\",\"params\":{\"query\":\"citylink navy\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink navy\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "abb4f4f0-73ec-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Blue (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] Blue (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink Blue\",\"params\":{\"query\":\"citylink Blue\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink Blue\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "a35789d0-73ec-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Lime (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] Lime (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink lime\",\"params\":{\"query\":\"citylink lime\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink lime\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "fb4b4140-73ec-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Lime (-1 to 5)",
+      "visState": "{\"title\":\"[OTP] Lime (-1 to 5)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink lime\",\"params\":{\"query\":\"citylink lime\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink lime\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
       }
     },
     "_meta": {
@@ -360,7 +501,7 @@
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Yellow (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Yellow (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "visState": "{\"title\":\"[OTP] Yellow (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -377,7 +518,7 @@
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Purple (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Purple (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "visState": "{\"title\":\"[OTP] Purple (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -394,7 +535,7 @@
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Silver (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Silver (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "visState": "{\"title\":\"[OTP] Silver (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -411,7 +552,7 @@
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Silver (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Silver (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "visState": "{\"title\":\"[OTP] Silver (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -424,11 +565,28 @@
     }
   },
   {
+    "_id": "999389d0-73ec-11e9-bc93-d7314667393b",
+    "_type": "visualization",
+    "_source": {
+      "title": "[OTP] Purple (-2 to 7)",
+      "visState": "{\"title\":\"[OTP] Purple (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink Purple\",\"params\":{\"query\":\"citylink Purple\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink Purple\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
     "_id": "a4dc7190-73eb-11e9-bc93-d7314667393b",
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Pink (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Pink (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "visState": "{\"title\":\"[OTP] Pink (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -441,28 +599,11 @@
     }
   },
   {
-    "_id": "fb8a1470-73eb-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Green (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Green (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink green\",\"params\":{\"query\":\"citylink green\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink green\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
     "_id": "20ad3890-73ec-11e9-bc93-d7314667393b",
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Pink (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Pink (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "visState": "{\"title\":\"[OTP] Pink (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -479,7 +620,7 @@
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Red (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Red (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "visState": "{\"title\":\"[OTP] Red (-1 to 5)\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"bottom\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -492,147 +633,11 @@
     }
   },
   {
-    "_id": "e96a7eb0-7396-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] All (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] All (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "38781260-73ec-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Orange (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Orange (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink Orange\",\"params\":{\"query\":\"citylink Orange\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink Orange\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "999389d0-73ec-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Purple (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Purple (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink Purple\",\"params\":{\"query\":\"citylink Purple\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink Purple\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "8ffdc5c0-73ec-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Brown (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Brown (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink brown\",\"params\":{\"query\":\"citylink brown\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink brown\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "6dfa5830-73ec-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Gold (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Gold (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink gold\",\"params\":{\"query\":\"citylink gold\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink gold\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "7f7a0510-73ec-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Navy (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Navy (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink navy\",\"params\":{\"query\":\"citylink navy\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink navy\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "a35789d0-73ec-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Lime (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Lime (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink lime\",\"params\":{\"query\":\"citylink lime\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink lime\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "abb4f4f0-73ec-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Blue (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Blue (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink Blue\",\"params\":{\"query\":\"citylink Blue\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink Blue\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
     "_id": "774e3140-73ec-11e9-bc93-d7314667393b",
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Red (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Red (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "visState": "{\"title\":\"[OTP] Red (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -645,33 +650,16 @@
     }
   },
   {
-    "_id": "fb4b4140-73ec-11e9-bc93-d7314667393b",
+    "_id": "bb73ae00-7396-11e9-bc93-d7314667393b",
     "_type": "visualization",
     "_source": {
-      "title": "[OTP] Lime (-1 to 5)",
-      "visState": "{\"title\":\"[OTP] Lime (-1 to 5)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
+      "title": "[OTP] All (-1 to 5)",
+      "visState": "{\"title\":\"[OTP] All (-1 to 5)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink lime\",\"params\":{\"query\":\"citylink lime\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink lime\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
-      }
-    },
-    "_meta": {
-      "savedObjectVersion": 2
-    }
-  },
-  {
-    "_id": "1bfc1720-73ed-11e9-bc93-d7314667393b",
-    "_type": "visualization",
-    "_source": {
-      "title": "[OTP] Orange (-1 to 5)",
-      "visState": "{\"aggs\":[{\"enabled\":true,\"id\":\"1\",\"params\":{\"field\":\"headway\"},\"schema\":\"metric\",\"type\":\"sum\"},{\"enabled\":true,\"id\":\"2\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-60,\"to\":300},{\"from\":null,\"to\":-61},{\"from\":301}]},\"schema\":\"segment\",\"type\":\"range\"}],\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":true,\"show\":true,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"title\":\"[OTP] Orange (-1 to 5)\",\"type\":\"pie\"}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"route_short_name\",\"value\":\"citylink orange\",\"params\":{\"query\":\"citylink orange\",\"type\":\"phrase\"}},\"query\":{\"match\":{\"route_short_name\":{\"query\":\"citylink orange\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
       }
     },
     "_meta": {
@@ -683,7 +671,7 @@
     "_type": "visualization",
     "_source": {
       "title": "[OTP] Yellow (-2 to 7)",
-      "visState": "{\"title\":\"[OTP] Yellow (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"headway\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
+      "visState": "{\"title\":\"[OTP] Yellow (-2 to 7)\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"range\",\"schema\":\"segment\",\"params\":{\"field\":\"arrival_time_diff\",\"ranges\":[{\"from\":-120,\"to\":420},{\"from\":null,\"to\":-121},{\"from\":421}]}}]}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
@@ -696,19 +684,57 @@
     }
   },
   {
-    "_id": "e384d440-73ec-11e9-bc93-d7314667393b",
+    "_id": "f2a5b760-732d-11e9-bc93-d7314667393b",
     "_type": "dashboard",
     "_source": {
-      "title": "OTP Dashboard",
+      "title": "Bus Dashboard",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":15,\"w\":24,\"h\":15,\"i\":\"1\"},\"id\":\"73f90840-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":15,\"w\":24,\"h\":15,\"i\":\"2\"},\"id\":\"abb4f4f0-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"2\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":30,\"w\":24,\"h\":15,\"i\":\"3\"},\"id\":\"fb4ab6f0-73ea-11e9-bc93-d7314667393b\",\"panelIndex\":\"3\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":30,\"w\":24,\"h\":15,\"i\":\"4\"},\"id\":\"8ffdc5c0-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":45,\"w\":24,\"h\":15,\"i\":\"5\"},\"id\":\"7d3b5520-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":45,\"w\":24,\"h\":15,\"i\":\"6\"},\"id\":\"6dfa5830-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"6\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":60,\"w\":24,\"h\":15,\"i\":\"7\"},\"id\":\"866b5280-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"7\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":60,\"w\":24,\"h\":15,\"i\":\"8\"},\"id\":\"fb8a1470-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"8\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":75,\"w\":24,\"h\":15,\"i\":\"9\"},\"id\":\"fb4b4140-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"9\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":75,\"w\":24,\"h\":15,\"i\":\"10\"},\"id\":\"a35789d0-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":90,\"w\":24,\"h\":15,\"i\":\"11\"},\"id\":\"91a77390-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"11\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":90,\"w\":24,\"h\":15,\"i\":\"12\"},\"id\":\"7f7a0510-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"12\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":105,\"w\":24,\"h\":15,\"i\":\"13\"},\"id\":\"a4dc7190-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"13\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":105,\"w\":24,\"h\":15,\"i\":\"14\"},\"id\":\"20ad3890-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"14\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":120,\"w\":24,\"h\":15,\"i\":\"15\"},\"id\":\"bd8b69d0-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"15\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":120,\"w\":24,\"h\":15,\"i\":\"16\"},\"id\":\"999389d0-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"16\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":135,\"w\":24,\"h\":15,\"i\":\"17\"},\"id\":\"c53c6850-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"17\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":135,\"w\":24,\"h\":15,\"i\":\"18\"},\"id\":\"774e3140-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"18\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":150,\"w\":24,\"h\":15,\"i\":\"19\"},\"id\":\"d107f820-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"19\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":150,\"w\":24,\"h\":15,\"i\":\"20\"},\"id\":\"293c6210-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"20\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":165,\"w\":24,\"h\":15,\"i\":\"21\"},\"id\":\"de20a160-73eb-11e9-bc93-d7314667393b\",\"panelIndex\":\"21\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":180,\"w\":24,\"h\":15,\"i\":\"22\"},\"id\":\"1bfc1720-73ed-11e9-bc93-d7314667393b\",\"panelIndex\":\"22\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":180,\"w\":24,\"h\":15,\"i\":\"23\"},\"id\":\"38781260-73ec-11e9-bc93-d7314667393b\",\"panelIndex\":\"23\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"gridData\":{\"x\":24,\"y\":165,\"w\":24,\"h\":15,\"i\":\"24\"},\"version\":\"6.7.1\",\"panelIndex\":\"24\",\"type\":\"visualization\",\"id\":\"74d8a7f0-73ed-11e9-bc93-d7314667393b\",\"embeddableConfig\":{}},{\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"25\"},\"version\":\"6.7.1\",\"panelIndex\":\"25\",\"type\":\"visualization\",\"id\":\"e96a7eb0-7396-11e9-bc93-d7314667393b\",\"embeddableConfig\":{}},{\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"26\"},\"version\":\"6.7.1\",\"panelIndex\":\"26\",\"type\":\"visualization\",\"id\":\"bb73ae00-7396-11e9-bc93-d7314667393b\",\"embeddableConfig\":{}}]",
+      "panelsJSON": "[{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":7,\"i\":\"1\"},\"id\":\"c37adda0-7137-11e9-bc93-d7314667393b\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":22,\"w\":24,\"h\":15,\"i\":\"2\"},\"id\":\"5171e730-7137-11e9-bc93-d7314667393b\",\"panelIndex\":\"2\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":7,\"w\":24,\"h\":15,\"i\":\"3\"},\"id\":\"3c6a3a20-7139-11e9-bc93-d7314667393b\",\"panelIndex\":\"3\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":37,\"w\":24,\"h\":15,\"i\":\"4\"},\"id\":\"c9ac2f10-7139-11e9-bc93-d7314667393b\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":37,\"w\":24,\"h\":15,\"i\":\"6\"},\"id\":\"0d064a80-731e-11e9-bc93-d7314667393b\",\"panelIndex\":\"6\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":22,\"w\":24,\"h\":15,\"i\":\"8\"},\"id\":\"df7a7d60-732d-11e9-bc93-d7314667393b\",\"panelIndex\":\"8\",\"type\":\"visualization\",\"version\":\"6.7.1\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":7,\"w\":24,\"h\":15,\"i\":\"10\"},\"id\":\"dea3bc10-7393-11e9-bc93-d7314667393b\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.7.1\"}]",
       "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[{\"meta\":{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"range\",\"key\":\"@timestamp\",\"value\":\"April 1st 2019, 00:00:00.000 to May 1st 2019, 00:00:00.000\",\"params\":{\"gte\":\"2019-04-01\",\"lt\":\"2019-05-01\"}},\"range\":{\"@timestamp\":{\"gte\":\"2019-04-01\",\"lt\":\"2019-05-01\"}},\"$state\":{\"store\":\"appState\"}}]}"
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"key\":\"@timestamp\",\"negate\":false,\"params\":{\"gte\":\"2019-04-01\",\"lt\":\"2019-04-30\"},\"type\":\"range\",\"value\":\"April 1st 2019, 00:00:00.000 to April 30th 2019, 00:00:00.000\"},\"range\":{\"@timestamp\":{\"gte\":\"2019-04-01\",\"lt\":\"2019-04-30\"}}}]}"
       }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "9b305680-7a66-11e9-bc93-d7314667393b",
+    "_type": "search",
+    "_source": {
+      "title": "New Saved Search",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "scheduled_arrival_time",
+        "actual_arrival_time_dow",
+        "route_color",
+        "direction_id"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35913e70-7070-11e9-bc93-d7314667393b\",\"highlightAll\":true,\"version\":true,\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "35913e70-7070-11e9-bc93-d7314667393b",
+    "_type": "index-pattern",
+    "_source": {
+      "title": "gtfs-data",
+      "timeFieldName": "@timestamp",
+      "fields": "[{\"name\":\"@timestamp\",\"type\":\"date\",\"count\":6,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"@uuid\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"@uuid.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"@version\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"@version.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"actual_arrival_time\",\"type\":\"number\",\"count\":2,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"actual_arrival_time_dow\",\"type\":\"number\",\"count\":2,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"actual_arrival_time_hour\",\"type\":\"number\",\"count\":2,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"aggregate_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"aggregate_id.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"arrival_time_diff\",\"type\":\"number\",\"count\":6,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"date_day_of_week\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"date_hour\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"day_of_week\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"direction_id\",\"type\":\"string\",\"count\":2,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"direction_id.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"headway\",\"type\":\"number\",\"count\":4,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.host\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.host.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.request.headers.Authorization\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.request.headers.Authorization.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.request.method\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.request.method.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_poller_metadata.request.url\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_poller_metadata.request.url.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.error\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.error.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.request.headers.Authorization\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.request.headers.Authorization.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.request.method\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.request.method.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.request.url\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"http_request_failure.request.url.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"http_request_failure.runtime_seconds\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"location.lat\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"location.lon\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_color\",\"type\":\"string\",\"count\":2,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_color.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_long_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_long_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_short_name\",\"type\":\"string\",\"count\":2,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_short_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_text_color\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_text_color.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"route_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"route_type.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"schedule_relationship\",\"type\":\"number\",\"count\":1,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"scheduled_arrival_time\",\"type\":\"number\",\"count\":8,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"segment_speed\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"shape_dist_traveled\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"shape_dist_traveled.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"shape_dist_traveled_since_prev\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"shape_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"shape_id.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"stop_id\",\"type\":\"number\",\"count\":3,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"stop_name\",\"type\":\"string\",\"count\":5,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"stop_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"stop_sequence\",\"type\":\"number\",\"count\":9,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"tags\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"tags.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"time_since_last_stop\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"trip_headsign\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"trip_headsign.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"trip_id\",\"type\":\"number\",\"count\":3,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true}]"
     },
     "_meta": {
       "savedObjectVersion": 2
