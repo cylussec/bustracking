@@ -1,4 +1,19 @@
-This starts with the AWS Bitnami ELK stack 6.7. 
+This starts with the AWS Bitnami ELK stack 7.3. 
+
+Run the following 
+
+PUT gtfs-data
+{
+  "mappings": {
+    "properties": {
+      "location": {
+        "type": "geo_point"
+      }
+    }
+  }
+}
+
+======
 
 Put the gtfsdownloader.sh, gtfs-realtime.pb.rb, chop.rb and stitch.rb into /opt/bitnami/logstash
 Put the logstash.conf and logstash-postprocess.conf into /opt/bitnami/logstash/conf
@@ -8,6 +23,7 @@ Add the following to the /opt/bitnami/logstash/config/pipeline.yml
   path.config: "/opt/bitnami/logstash/conf/logstash.conf"
 - pipeline.id: postprocessor
   path.config: "/opt/bitnami/logstash/conf/logstash-postprocess.conf"
+  pipeline.workers: 1
 
 ====
 

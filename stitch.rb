@@ -1,29 +1,55 @@
+# Script that postprocesses data. This should be run every few hours, and only on trips that are complete (so only run
+# it on data that is a few hours old to allow the trip to end)
+
 require 'csv'
 
 SCHEDULED = 0
 CANCELED = 3
 
+# bus_stop_data
+#     [route_id]
+#         [stop_id] = last actual_arrival_time
+
+# bus_trip_data
+#     [trip_id] = hash
+#         [stop_sequence] = hash
+#             [distance] = last shape_dist_traveled
+#             [stop_time] = last actual_arrival_time
+#
+# sets
+#    headway
+#    shape_dist_traveled_since_prev
+#    time_since_last_stop
+#    segment_speed
+
 $bus_trip_data = Hash.new
 $bus_stop_data = Hash.new
 
 def register(params)
-    puts 'Entering register (stitch)'
+    print 'Entering register (stitch)'
 end
 
 def filter(event)
     if event.get('schedule_relationship') == CANCELED
+        # Does not require postprocessing
         return [event]
     end
 
-    trip_id = event.get('trip_id')
-    stop_sequence = event.get('stop_sequence')
+    trip_id = event.get('trip_id').to_s
+    stop_sequence = event.get('stop_sequence').to_s
+    route_id = event.get('route_id').to_s
+    stop_id = event.get('stop_id').to_s
+
+    if $bus_stop_data[route_id].nil?
+        $bus_stop_data[route_id] = Hash.new
+    end
     
     # This relies on us only running this script on previous stop data. The scheduled stops are included
     # in the emmited events, so if this is run on data, it will provide bad bus stop data, and will use future data. 
-    if $bus_stop_data[event.get('stop_id')]
-        event.set('headway', event.get('actual_arrival_time') - $bus_stop_data[event.get('stop_id')])
+    if not $bus_stop_data[route_id][stop_id].nil?
+        event.set('headway', event.get('actual_arrival_time') - $bus_stop_data[route_id][stop_id])
     end
-    $bus_stop_data[event.get('stop_id')] = event.get('actual_arrival_time')
+    $bus_stop_data[route_id][stop_id] = event.get('actual_arrival_time')
 
     if $bus_trip_data[trip_id].nil?
         $bus_trip_data[trip_id] = Hash.new
@@ -48,7 +74,7 @@ def filter(event)
         end
 
         if not (last_stop_distance.nil? or last_stop_time.nil?) and event.get('time_since_last_stop') != 0
-            event.set('segment_speed', (event.get('shape_dist_traveled_since_prev')*3600/event.get('time_since_last_stop')))
+            event.set('segment_speed', (event.get('shape_dist_traveled_since_prev') * 3600 / event.get('time_since_last_stop')))
         end
     end
 

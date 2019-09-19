@@ -115,7 +115,6 @@ def filter(event)
                 gtfs_stoptimedata = @stop_times[stop_time_id]
                 if gtfs_stoptimedata.nil?
                     # We found the non existant stop 
-                    puts "#{Time.now} ERROR: stop_time_id #{stop_time_id} not found"
                     break
                 end
 
