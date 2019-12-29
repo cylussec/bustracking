@@ -1,0 +1,509 @@
+{
+  "entity": {
+    "id": "2393125",
+    "trip_update": {
+      "trip": {
+        "trip_id": "2393125",
+        "start_date": "20191109",
+        "schedule_relationship": 0,
+        "route_id": "11652",
+        "direction_id": 1
+      },
+      "stop_time_update":
+      [
+        {
+          "stop_sequence": 1,
+          "arrival": {
+            "time": 1573323529
+          },
+          "stop_id": "1864",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 2,
+          "arrival": {
+            "time": 1573323581
+          },
+          "stop_id": "4013",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 3,
+          "arrival": {
+            "time": 1573323624
+          },
+          "stop_id": "4014",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 4,
+          "arrival": {
+            "time": 1573323663
+          },
+          "stop_id": "11837",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 5,
+          "arrival": {
+            "time": 1573323746
+          },
+          "stop_id": "4016",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 6,
+          "arrival": {
+            "time": 1573323770
+          },
+          "stop_id": "4017",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 7,
+          "arrival": {
+            "time": 1573323874
+          },
+          "stop_id": "4018",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 8,
+          "arrival": {
+            "time": 1573323903
+          },
+          "stop_id": "5866",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 9,
+          "arrival": {
+            "time": 1573323942
+          },
+          "stop_id": "5867",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 10,
+          "arrival": {
+            "time": 1573323950
+          },
+          "stop_id": "5868",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 11,
+          "arrival": {
+            "time": 1573323976
+          },
+          "stop_id": "5870",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 12,
+          "arrival": {
+            "time": 1573323997
+          },
+          "stop_id": "2637",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 13,
+          "arrival": {
+            "time": 1573324074
+          },
+          "stop_id": "5847",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 14,
+          "arrival": {
+            "time": 1573324146
+          },
+          "stop_id": "5872",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 15,
+          "arrival": {
+            "time": 1573324182
+          },
+          "stop_id": "5873",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 16,
+          "arrival": {
+            "time": 1573324224
+          },
+          "stop_id": "5875",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 17,
+          "arrival": {
+            "time": 1573324395
+          },
+          "stop_id": "5876",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 18,
+          "arrival": {
+            "time": 1573324474
+          },
+          "stop_id": "5878",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 19,
+          "arrival": {
+            "time": 1573324486
+          },
+          "stop_id": "5879",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 20,
+          "arrival": {
+            "time": 1573324545
+          },
+          "stop_id": "5881",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 21,
+          "arrival": {
+            "time": 1573324616
+          },
+          "stop_id": "4144",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 22,
+          "arrival": {
+            "time": 1573324664
+          },
+          "stop_id": "558",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 23,
+          "arrival": {
+            "time": 1573324694
+          },
+          "stop_id": "561",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 24,
+          "arrival": {
+            "time": 1573324725
+          },
+          "stop_id": "11340",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 25,
+          "arrival": {
+            "time": 1573324741
+          },
+          "stop_id": "11341",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 26,
+          "arrival": {
+            "time": 1573324780
+          },
+          "stop_id": "11343",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 27,
+          "arrival": {
+            "time": 1573324807
+          },
+          "stop_id": "5884",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 28,
+          "arrival": {
+            "time": 1573324829
+          },
+          "stop_id": "5885",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 29,
+          "arrival": {
+            "time": 1573324840
+          },
+          "stop_id": "5886",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 30,
+          "arrival": {
+            "time": 1573324865
+          },
+          "stop_id": "5887",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 31,
+          "arrival": {
+            "time": 1573324876
+          },
+          "stop_id": "5888",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 32,
+          "arrival": {
+            "time": 1573324890
+          },
+          "stop_id": "5889",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 33,
+          "arrival": {
+            "time": 1573324925
+          },
+          "stop_id": "5890",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 34,
+          "arrival": {
+            "time": 1573324981
+          },
+          "stop_id": "5891",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 35,
+          "arrival": {
+            "time": 1573325014
+          },
+          "stop_id": "5893",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 36,
+          "arrival": {
+            "time": 1573325056
+          },
+          "stop_id": "5894",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 37,
+          "arrival": {
+            "time": 1573325078
+          },
+          "stop_id": "5896",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 38,
+          "arrival": {
+            "time": 1573325148
+          },
+          "stop_id": "5898",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 39,
+          "arrival": {
+            "time": 1573325195
+          },
+          "stop_id": "5899",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 40,
+          "arrival": {
+            "time": 1573325206
+          },
+          "stop_id": "5900",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 41,
+          "arrival": {
+            "time": 1573325253
+          },
+          "stop_id": "5902",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 42,
+          "arrival": {
+            "time": 1573325292
+          },
+          "stop_id": "5903",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 43,
+          "arrival": {
+            "time": 1573325328
+          },
+          "stop_id": "5904",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 44,
+          "arrival": {
+            "time": 1573325379
+          },
+          "stop_id": "5908",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 45,
+          "arrival": {
+            "time": 1573325439
+          },
+          "stop_id": "5909",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 46,
+          "arrival": {
+            "time": 1573325467
+          },
+          "stop_id": "5910",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 47,
+          "arrival": {
+            "time": 1573325485
+          },
+          "stop_id": "5814",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 48,
+          "arrival": {
+            "time": 1573325648
+          },
+          "stop_id": "593",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 49,
+          "arrival": {
+            "time": 1573325669
+          },
+          "stop_id": "8997",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 50,
+          "arrival": {
+            "time": 1573325736
+          },
+          "stop_id": "595",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 51,
+          "arrival": {
+            "time": 1573325784
+          },
+          "stop_id": "596",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 52,
+          "arrival": {
+            "time": 1573325801
+          },
+          "stop_id": "12729",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 53,
+          "arrival": {
+            "time": 1573325815
+          },
+          "stop_id": "597",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 54,
+          "arrival": {
+            "time": 1573325836
+          },
+          "stop_id": "598",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 55,
+          "arrival": {
+            "time": 1573325902
+          },
+          "stop_id": "10774",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 56,
+          "arrival": {
+            "time": 1573325987
+          },
+          "stop_id": "12323",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 57,
+          "arrival": {
+            "time": 1573326094
+          },
+          "stop_id": "601",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 58,
+          "arrival": {
+            "time": 1573326118
+          },
+          "stop_id": "603",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 59,
+          "arrival": {
+            "time": 1573326138
+          },
+          "stop_id": "604",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 60,
+          "arrival": {
+            "time": 1573326166
+          },
+          "stop_id": "605",
+          "schedule_relationship": 0
+        },
+        {
+          "stop_sequence": 61,
+          "arrival": {
+            "time": 1573326190
+          },
+          "stop_id": "8540",
+          "schedule_relationship": 0
+        }
+      ],
+      "vehicle": {
+        "id": "16022"
+      },
+      "timestamp": 1573323607
+    }
+  }
+}

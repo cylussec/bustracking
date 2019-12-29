@@ -1,0 +1,12 @@
+{
+  "entity": {
+    "id": "2408865",
+    "trip_update": {
+      "trip": {
+        "trip_id": "2408865",
+        "schedule_relationship": 3
+      },
+      "timestamp": 1573323609
+    }
+  }
+}
