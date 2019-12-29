@@ -1,0 +1,11 @@
+Metrics/LineLength:
+  Max: 120
+
+Security/MarshalLoad:
+  Enabled: False
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 25
