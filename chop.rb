@@ -59,15 +59,16 @@ end
 # Takes a time in the format hh:mm:ss as well as the date (at the beginning of the route) and converts it to epoc time.
 # It also accepts times like 25:45:38, indicating the route operated past midnight, and corrects the date.
 #
-# input_time should be string of hh:mm:ss
+# input_time should be string of hh:mm:ss from local time which should be converted
 # start_date should be string of YYYMMDD
 #
-# Returns an integer of the epoc time
-def normalize_date(input_time, start_date)
-  LOG.debug("Entering normalize_date #{input_time}, #{start_date}")
+# Returns an integer of the epoc time in UTC time
+def normalize_local_date(input_time, start_date)
+  LOG.debug("Entering normalize_local_date #{input_time}, #{start_date}")
 
   hour, minute, second = input_time.split(':').map(&:to_i)
   realdate = Time.parse(start_date)
+
   if hour > 23
     realdate += 86_400 # add a day to the datetime object
     hour -= 24
@@ -152,7 +153,7 @@ def process_canceled_trip(trip_update, results_array)
       stop_name: gtfs_stopdata['stop_name'],
       stop_lat: gtfs_stopdata['stop_lat'].to_f,
       stop_lon: gtfs_stopdata['stop_lon'].to_f,
-      scheduled_arrival_time: normalize_date(gtfs_stoptimedata['arrival_time'], start_date),
+      scheduled_arrival_time: normalize_local_date(gtfs_stoptimedata['arrival_time'], start_date),
       actual_arrival_time: 0,
       actual_arrival_time_dow: 0,
       actual_arrival_time_hour: 0,
@@ -204,7 +205,7 @@ def process_scheduled_trips(trip_update, results_array)
       next
     end
 
-    scheduled_arrival_time = normalize_date(gtfs_stoptimedata['arrival_time'], start_date)
+    scheduled_arrival_time = normalize_local_date(gtfs_stoptimedata['arrival_time'], start_date)
 
     arrival = (stop_time_update['arrival'] || stop_time_update['departure'])
     if !arrival.nil?

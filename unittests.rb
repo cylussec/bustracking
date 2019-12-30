@@ -4,7 +4,6 @@ require 'json'
 require 'test/unit'
 require 'tmpdir'
 
-require_relative 'logstash/event'
 require_relative 'chop'
 require_relative 'stitch'
 
@@ -184,9 +183,10 @@ class TestTransitTrak < Test::Unit::TestCase
   end
 
   def test_normalize_date
-    assert_equal(1_573_268_016, normalize_date('21:53:36', '2019/11/8'))
-    assert_equal(1_573_277_408, normalize_date('24:30:08', '2019/11/8'))
-    assert_equal(1_573_291_500, normalize_date('28:25:00', '2019/11/8'))
+    assert_equal(1_573_262_300, normalize_date('20:18:20', '2019/11/8'))
+    assert_equal(1_573_286_016, normalize_date('2:53:36', '2019/11/9'))
+    assert_equal(1_573_295_408, normalize_date('5:30:08', '2019/11/9'))
+    assert_equal(1_573_309_500, normalize_date('9:25:00', '2019/11/9'))
     assert_equal(1_546_408_923, normalize_date(' 1:2:3', '19/1/2'))
     assert_equal(1_548_910_800, normalize_date(' 0:0:0', '2019/1/31'))
     assert_raise(ArgumentError) { normalize_date('00:00:00', '2019/01/32') }
