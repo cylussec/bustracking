@@ -31,12 +31,12 @@ end
 
 def filter(event)
   # Does not require postprocessing
-  return [event] if event.get(:schedule_relationship) == CANCELED
+  return [event] if event.get('schedule_relationship') == CANCELED
 
-  trip_id = event.get(:trip_id).to_s
-  stop_sequence = event.get(:stop_sequence).to_s
-  route_id = event.get(:route_id).to_s
-  stop_id = event.get(:stop_id).to_s
+  trip_id = event.get('trip_id').to_s
+  stop_sequence = event.get('stop_sequence').to_s
+  route_id = event.get('route_id').to_s
+  stop_id = event.get('stop_id').to_s
 
   # This relies on us only running this script on previous stop data. The scheduled stops are included
   # in the emited events, so if this is run on data, it will provide bad bus stop data, and will use future data.
@@ -50,13 +50,13 @@ def filter(event)
   end
 
   # Populate bus_trip_data
-  @bus_trip_data[trip_id][stop_sequence] = { 'distance' => event.get(:shape_dist_traveled),
-                                             'actual_arrival_time' => event.get(:actual_arrival_time) }
+  @bus_trip_data[trip_id][stop_sequence] = { 'distance' => event.get('shape_dist_traveled'),
+                                             'actual_arrival_time' => event.get('actual_arrival_time') }
 
   # A shortcut for reprocessing data. If we already have these calculated, then skip this.
-  postprocess = [event.get(:shape_dist_traveled_since_prev),
-                 event.get(:time_since_last_stop),
-                 event.get(:segment_speed)].include?(nil)
+  postprocess = [event.get('shape_dist_traveled_since_prev'),
+                 event.get('time_since_last_stop'),
+                 event.get('segment_speed')].include?(nil)
 
   postprocess(event, trip_id, stop_sequence) if postprocess
 
@@ -67,17 +67,17 @@ def postprocess_data(event, trip_id, stop_sequence)
   last_stop_distance, last_stop_time = find_last_stop(@bus_trip_data[trip_id], stop_sequence)
 
   unless last_stop_distance.nil?
-    event.set(:shape_dist_traveled_since_prev, (event.get(:shape_dist_traveled).to_f - last_stop_distance))
+    event.set(:shape_dist_traveled_since_prev, (event.get('shape_dist_traveled').to_f - last_stop_distance))
   end
 
   unless last_stop_time.nil?
-    event.set(:time_since_last_stop, (event.get(:actual_arrival_time).to_i - last_stop_time))
+    event.set(:time_since_last_stop, (event.get('actual_arrival_time').to_i - last_stop_time))
   end
 
-  unless (last_stop_distance.nil? || last_stop_time.nil?) && event.get(:time_since_last_stop) != 0
-    event.set(:segment_speed,
-              (event.get(:shape_dist_traveled_since_prev) * 3600 / event.get(:time_since_last_stop)))
-  end
+  return if (last_stop_distance.nil? || last_stop_time.nil?) && event.get('time_since_last_stop') != 0
+
+  event.set(:segment_speed,
+            (event.get('shape_dist_traveled_since_prev') * 3600 / event.get('time_since_last_stop')))
 end
 
 def find_last_stop(bus_run_data, stop_sequence)

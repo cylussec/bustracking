@@ -84,7 +84,7 @@ end
 
 def get_gtfs_generic(id, data, element)
   output = data.detect { |x| x[element] == id.to_i }
-  LOG.error("#{element} #{id} not found") unless output.nil?
+  LOG.error("#{element} #{id} not found") if output.nil?
   output
 end
 
