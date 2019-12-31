@@ -2,9 +2,7 @@
 # it on data that is a few hours old to allow the trip to end)
 
 require 'csv'
-
-SCHEDULED = 0
-CANCELED = 3
+require_relative 'constants'
 
 # stop_arrivals
 #     [route_id]

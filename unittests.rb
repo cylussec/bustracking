@@ -6,6 +6,7 @@ require 'tmpdir'
 
 require_relative 'chop'
 require_relative 'stitch'
+require_relative 'constants'
 
 # Mirrors the functionality of the builtin LogStash::Event class
 module LogStash
@@ -104,10 +105,9 @@ VALIDATION_DATA = {
   }
 }.freeze
 
-STOPTIMES_FILE = 'test_data/stop_times.txt'.freeze
-STOPS_FILE = 'test_data/stops.txt'.freeze
-ROUTES_FILE = 'test_data/routes.txt'.freeze
-TRIPS_FILE = 'test_data/trips.txt'.freeze
+def pull_gtfs_data
+  system('./gtfsdownloader.sh')
+end
 
 # unit tests for bus tracking
 class TestTransitTrak < Test::Unit::TestCase
@@ -121,6 +121,7 @@ class TestTransitTrak < Test::Unit::TestCase
   end
 
   def test_load_data_trips
+    pull_gtfs_data
     Dir.mktmpdir do |dir|
       tmp_data = "#{dir}/#{VALIDATION_DATA['trips'][0]}"
       data = load_data(tmp_data, TRIPS_FILE)
@@ -137,6 +138,7 @@ class TestTransitTrak < Test::Unit::TestCase
   end
 
   def test_load_data_routes
+    pull_gtfs_data
     Dir.mktmpdir do |dir|
       tmp_data = "#{dir}/#{VALIDATION_DATA['routes'][0]}"
       data = load_data(tmp_data, ROUTES_FILE)
@@ -153,6 +155,7 @@ class TestTransitTrak < Test::Unit::TestCase
   end
 
   def test_load_data_stops
+    pull_gtfs_data
     Dir.mktmpdir do |dir|
       tmp_data = "#{dir}/#{VALIDATION_DATA['stops'][0]}"
       data = load_data(tmp_data, STOPS_FILE)
@@ -169,6 +172,7 @@ class TestTransitTrak < Test::Unit::TestCase
   end
 
   def test_load_stop_times
+    pull_gtfs_data
     validate_st = lambda do |stop_times|
       assert_not_nil(stop_times['2398318-23'])
       assert_nil(stop_times['2398318-200'])
@@ -177,19 +181,20 @@ class TestTransitTrak < Test::Unit::TestCase
 
     Dir.mktmpdir do |dir|
       tmp_data = "#{dir}/stop_time_data"
-      validate_st.call(load_stop_times(tmp_data, STOPTIMES_FILE))
+      validate_st.call(load_stop_times(tmp_data, STOP_TIMES_FILE))
       validate_st.call(load_stop_times(tmp_data, ''))
     end
   end
 
-  def test_normalize_date
-    assert_equal(1_573_262_300, normalize_date('20:18:20', '2019/11/8'))
-    assert_equal(1_573_286_016, normalize_date('2:53:36', '2019/11/9'))
-    assert_equal(1_573_295_408, normalize_date('5:30:08', '2019/11/9'))
-    assert_equal(1_573_309_500, normalize_date('9:25:00', '2019/11/9'))
-    assert_equal(1_546_408_923, normalize_date(' 1:2:3', '19/1/2'))
-    assert_equal(1_548_910_800, normalize_date(' 0:0:0', '2019/1/31'))
-    assert_raise(ArgumentError) { normalize_date('00:00:00', '2019/01/32') }
+  def test_normalize_local_date
+    assert_equal(1_577_733_900, normalize_local_date('14:25:00', '2019/12/30'))
+    assert_equal(1_573_262_300, normalize_local_date('20:18:20', '2019/11/8'))
+    assert_equal(1_573_286_016, normalize_local_date('2:53:36', '2019/11/9'))
+    assert_equal(1_573_295_408, normalize_local_date('5:30:08', '2019/11/9'))
+    assert_equal(1_573_309_500, normalize_local_date('9:25:00', '2019/11/9'))
+    assert_equal(1_546_408_923, normalize_local_date(' 1:2:3', '19/1/2'))
+    assert_equal(1_548_910_800, normalize_local_date(' 0:0:0', '2019/1/31'))
+    assert_raise(ArgumentError) { normalize_local_date('00:00:00', '2019/01/32') }
   end
 
   def test_process_canceled_trips
@@ -197,7 +202,7 @@ class TestTransitTrak < Test::Unit::TestCase
       @routes = load_data("#{dir}/routes_data", ROUTES_FILE)
       @trips = load_data("#{dir}/trips_data", TRIPS_FILE)
       @stops = load_data("#{dir}/stop_data", STOPS_FILE)
-      @stop_times = load_stop_times("#{dir}/stoptimes_data", STOPTIMES_FILE)
+      @stop_times = load_stop_times("#{dir}/stoptimes_data", STOP_TIMES_FILE)
 
       content = File.read('test_data/canceled.json')
       trip_update = JSON.parse(content)
@@ -241,7 +246,7 @@ class TestTransitTrak < Test::Unit::TestCase
       @routes = load_data("#{dir}/routes_data", ROUTES_FILE)
       @trips = load_data("#{dir}/trips_data", TRIPS_FILE)
       @stops = load_data("#{dir}/stop_data", STOPS_FILE)
-      @stop_times = load_stop_times("#{dir}/stoptimes_data", STOPTIMES_FILE)
+      @stop_times = load_stop_times("#{dir}/stoptimes_data", STOP_TIMES_FILE)
 
       content = File.read('test_data/scheduled.json')
       entity = JSON.parse(content)

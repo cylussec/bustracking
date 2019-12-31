@@ -4,8 +4,7 @@ require 'csv'
 require 'time'
 require 'logger'
 
-SCHEDULED = 0
-CANCELED = 3
+require_relative 'constants'
 
 LOG = Logger.new(STDOUT)
 LOG.level = Logger::WARN
@@ -50,10 +49,10 @@ def register(_params)
   stops_file = '/tmp/stops_data'
   stop_times_file = '/tmp/stop_times_data'
 
-  @routes = load_data(route_file, '/opt/bitnami/logstash/mta-transit-data/routes.txt')
-  @trips = load_data(trips_file, '/opt/bitnami/logstash/mta-transit-data/trips.txt')
-  @stops = load_data(stops_file, '/opt/bitnami/logstash/mta-transit-data/stops.txt')
-  @stop_times = load_stop_times(stop_times_file, '/opt/bitnami/logstash/mta-transit-data/stop_times.txt')
+  @routes = load_data(route_file, ROUTES_FILE)
+  @trips = load_data(trips_file, TRIPS_FILE)
+  @stops = load_data(stops_file, STOPS_FILE)
+  @stop_times = load_stop_times(stop_times_file, STOP_TIMES_FILE)
 end
 
 # Takes a time in the format hh:mm:ss as well as the date (at the beginning of the route) and converts it to epoc time.
