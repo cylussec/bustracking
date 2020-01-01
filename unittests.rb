@@ -8,19 +8,23 @@ require_relative 'chop'
 require_relative 'stitch'
 require_relative 'constants'
 
-# Mirrors the functionality of the builtin LogStash::Event class
 module LogStash
+  # Mirrors the functionality of the builtin LogStash::Event class
   class Event
     def initialize(**args)
       @hash = args
     end
 
     def get(key)
-      @hash[key]
+      @hash[key.to_sym]
     end
 
     def set(key, value)
-      @hash[key] = value
+      @hash[key.to_sym] = value
+    end
+
+    def to_s
+      @hash
     end
   end
 end
@@ -187,7 +191,7 @@ class TestTransitTrak < Test::Unit::TestCase
   end
 
   def test_normalize_local_date
-    assert_equal(1_577_733_900, normalize_local_date('14:25:00', '2019/12/30'))
+    assert_equal(1_577_759_192, normalize_local_date('21:26:32', '2019/12/30'))
     assert_equal(1_573_262_300, normalize_local_date('20:18:20', '2019/11/8'))
     assert_equal(1_573_286_016, normalize_local_date('2:53:36', '2019/11/9'))
     assert_equal(1_573_295_408, normalize_local_date('5:30:08', '2019/11/9'))
@@ -195,6 +199,22 @@ class TestTransitTrak < Test::Unit::TestCase
     assert_equal(1_546_408_923, normalize_local_date(' 1:2:3', '19/1/2'))
     assert_equal(1_548_910_800, normalize_local_date(' 0:0:0', '2019/1/31'))
     assert_raise(ArgumentError) { normalize_local_date('00:00:00', '2019/01/32') }
+
+    # DST example
+    assert_equal(1_562_030_792, normalize_local_date('21:26:32', '2019/7/1'))
+  end
+
+  def test_normalize_local_date_utc
+    ENV['TZ'] = 'utc'
+    assert_equal(1_577_759_192, normalize_local_date('21:26:32', '2019/12/30'))
+    assert_equal(1_573_262_300, normalize_local_date('20:18:20', '2019/11/8'))
+    assert_equal(1_573_286_016, normalize_local_date('2:53:36', '2019/11/9'))
+    assert_equal(1_573_295_408, normalize_local_date('5:30:08', '2019/11/9'))
+    assert_equal(1_573_309_500, normalize_local_date('9:25:00', '2019/11/9'))
+    assert_equal(1_546_408_923, normalize_local_date(' 1:2:3', '19/1/2'))
+    assert_equal(1_548_910_800, normalize_local_date(' 0:0:0', '2019/1/31'))
+    assert_raise(ArgumentError) { normalize_local_date('00:00:00', '2019/01/32') }
+    ENV['TZ'] = 'US/Eastern'
   end
 
   def test_process_canceled_trips
@@ -253,7 +273,7 @@ class TestTransitTrak < Test::Unit::TestCase
       results_array = []
 
       process_scheduled_trips(entity['entity'], results_array)
-      assert_equal(results_array.length, 59)
+      assert_equal(results_array.length, 61)
 
       # Arbitrary element to check
       assert_equal(results_array[41].get(:aggregate_id), '2393125-20191109-5903')
@@ -306,14 +326,14 @@ class TestTransitTrak < Test::Unit::TestCase
 
     # Make up a 43rd stop
     event = LogStash::Event.new(
-      shape_dist_traveled: VALIDATION_DATA['bus_trip_data'][2_395_665][42]['distance'] + distance_delta,
-      actual_arrival_time: VALIDATION_DATA['bus_trip_data'][2_395_665][42]['actual_arrival_time'] + time_delta
+      'shape_dist_traveled': VALIDATION_DATA['bus_trip_data'][2_395_665][42]['distance'] + distance_delta,
+      'actual_arrival_time': VALIDATION_DATA['bus_trip_data'][2_395_665][42]['actual_arrival_time'] + time_delta
     )
 
     postprocess_data(event, 2_395_665, 43)
 
-    assert_equal(event.get(:shape_dist_traveled_since_prev).round(4), distance_delta)
-    assert_equal(event.get(:time_since_last_stop), time_delta)
-    assert_equal(event.get(:segment_speed).round(4), distance_delta * 3600 / time_delta)
+    assert_equal(event.get('shape_dist_traveled_since_prev').round(4), distance_delta)
+    assert_equal(event.get('time_since_last_stop'), time_delta)
+    assert_equal(event.get('segment_speed').round(4), distance_delta * 3600 / time_delta)
   end
 end

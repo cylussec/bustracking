@@ -3,6 +3,7 @@
 require 'csv'
 require 'time'
 require 'logger'
+require 'tzinfo'
 
 require_relative 'constants'
 
@@ -73,13 +74,16 @@ def normalize_local_date(input_time, start_date)
     hour -= 24
   end
 
+  tz = TZInfo::Timezone.get('America/New_York')
+  offset = tz.period_for_local(realdate).dst? ? -14_400 : -18_000 # -4:00 offset in DST, else -5:00
+
   Time.new(realdate.year,
            realdate.month,
            realdate.day,
            hour,
            minute,
            second,
-           Time.now.utc_offset).to_time.to_i
+           offset).to_time.to_i
 end
 
 def get_gtfs_generic(id, data, element)
@@ -133,32 +137,32 @@ def process_canceled_trip(trip_update, results_array)
     break if gtfs_stopdata.nil?
 
     results_array << LogStash::Event.new(
-      aggregate_id: trip_id + '-' + start_date + '-' + gtfs_stoptimedata['stop_id'].to_s,
-      route_id: gtfs_routedata['route_id'].to_i,
-      trip_id: trip_id.to_i,
-      stop_id: gtfs_stoptimedata['stop_id'].to_i,
-      stop_sequence: stop_seq_id.to_i,
-      route_short_name: gtfs_routedata['route_short_name'].to_s,
-      route_long_name: gtfs_routedata['route_long_name'].to_s,
-      route_color: gtfs_routedata['route_color'].to_s,
-      route_text_color: gtfs_routedata['route_text_color'].to_s,
-      shape_id: gtfs_tripdata['shape_id'].to_s,
-      trip_headsign: gtfs_tripdata['trip_headsign'],
-      trip_short_name: gtfs_tripdata['trip_short_name'],
-      direction_id: gtfs_tripdata['direction_id'],
-      route_desc: gtfs_routedata['route_desc'],
-      route_type: gtfs_routedata['route_type'],
-      stop_desc: gtfs_stopdata['stop_desc'],
-      stop_name: gtfs_stopdata['stop_name'],
-      stop_lat: gtfs_stopdata['stop_lat'].to_f,
-      stop_lon: gtfs_stopdata['stop_lon'].to_f,
-      scheduled_arrival_time: normalize_local_date(gtfs_stoptimedata['arrival_time'], start_date),
-      actual_arrival_time: 0,
-      actual_arrival_time_dow: 0,
-      actual_arrival_time_hour: 0,
-      arrival_time_diff: 0,
-      shape_dist_traveled: gtfs_stoptimedata['shape_dist_traveled'],
-      schedule_relationship: trip_update['trip_update']['trip']['schedule_relationship']
+      'aggregate_id': trip_id + '-' + start_date + '-' + gtfs_stoptimedata['stop_id'].to_s,
+      'route_id': gtfs_routedata['route_id'].to_i,
+      'trip_id': trip_id.to_i,
+      'stop_id': gtfs_stoptimedata['stop_id'].to_i,
+      'stop_sequence': stop_seq_id.to_i,
+      'route_short_name': gtfs_routedata['route_short_name'].to_s,
+      'route_long_name': gtfs_routedata['route_long_name'].to_s,
+      'route_color': gtfs_routedata['route_color'].to_s,
+      'route_text_color': gtfs_routedata['route_text_color'].to_s,
+      'shape_id': gtfs_tripdata['shape_id'].to_s,
+      'trip_headsign': gtfs_tripdata['trip_headsign'],
+      'trip_short_name': gtfs_tripdata['trip_short_name'],
+      'direction_id': gtfs_tripdata['direction_id'],
+      'route_desc': gtfs_routedata['route_desc'],
+      'route_type': gtfs_routedata['route_type'],
+      'stop_desc': gtfs_stopdata['stop_desc'],
+      'stop_name': gtfs_stopdata['stop_name'],
+      'stop_lat': gtfs_stopdata['stop_lat'].to_f,
+      'stop_lon': gtfs_stopdata['stop_lon'].to_f,
+      'scheduled_arrival_time': normalize_local_date(gtfs_stoptimedata['arrival_time'], start_date),
+      'actual_arrival_time': 0,
+      'actual_arrival_time_dow': 0,
+      'actual_arrival_time_hour': 0,
+      'arrival_time_diff': 0,
+      'shape_dist_traveled': gtfs_stoptimedata['shape_dist_traveled'],
+      'schedule_relationship': trip_update['trip_update']['trip']['schedule_relationship']
     )
     stop_seq_id += 1
   end
@@ -221,32 +225,32 @@ def process_scheduled_trips(trip_update, results_array)
     end
 
     results_array << LogStash::Event.new(
-      aggregate_id: trip_id + '-' + start_date + '-' + stop_time_update['stop_id'].to_s,
-      route_id: gtfs_routedata['route_id'].to_i,
-      trip_id: trip_id.to_i,
-      stop_id: stop_id.to_i,
-      stop_sequence: stop_time_update['stop_sequence'].to_i,
-      route_short_name: gtfs_routedata['route_short_name'].to_s,
-      route_long_name: gtfs_routedata['route_long_name'].to_s,
-      route_color: gtfs_routedata['route_color'].to_s,
-      route_text_color: gtfs_routedata['route_text_color'].to_s,
-      shape_id: gtfs_tripdata['shape_id'].to_s,
-      trip_headsign: gtfs_tripdata['trip_headsign'],
-      trip_short_name: gtfs_tripdata['trip_short_name'],
-      direction_id: gtfs_tripdata['direction_id'],
-      route_desc: gtfs_routedata['route_desc'],
-      route_type: gtfs_routedata['route_type'],
-      stop_desc: gtfs_stopdata['stop_desc'],
-      stop_name: gtfs_stopdata['stop_name'],
-      stop_lat: gtfs_stopdata['stop_lat'].to_f,
-      stop_lon: gtfs_stopdata['stop_lon'].to_f,
-      scheduled_arrival_time: scheduled_arrival_time,
-      actual_arrival_time: actual_arrival_time,
-      actual_arrival_time_dow: actual_arrival_wday,
-      actual_arrival_time_hour: actual_arrival_hour,
-      arrival_time_diff: arrival_time_diff,
-      shape_dist_traveled: gtfs_stoptimedata['shape_dist_traveled'],
-      schedule_relationship: swiftly_tripdata['schedule_relationship']
+      'aggregate_id': trip_id + '-' + start_date + '-' + stop_time_update['stop_id'].to_s,
+      'route_id': gtfs_routedata['route_id'].to_i,
+      'trip_id': trip_id.to_i,
+      'stop_id': stop_id.to_i,
+      'stop_sequence': stop_time_update['stop_sequence'].to_i,
+      'route_short_name': gtfs_routedata['route_short_name'].to_s,
+      'route_long_name': gtfs_routedata['route_long_name'].to_s,
+      'route_color': gtfs_routedata['route_color'].to_s,
+      'route_text_color': gtfs_routedata['route_text_color'].to_s,
+      'shape_id': gtfs_tripdata['shape_id'].to_s,
+      'trip_headsign': gtfs_tripdata['trip_headsign'],
+      'trip_short_name': gtfs_tripdata['trip_short_name'],
+      'direction_id': gtfs_tripdata['direction_id'],
+      'route_desc': gtfs_routedata['route_desc'],
+      'route_type': gtfs_routedata['route_type'],
+      'stop_desc': gtfs_stopdata['stop_desc'],
+      'stop_name': gtfs_stopdata['stop_name'],
+      'stop_lat': gtfs_stopdata['stop_lat'].to_f,
+      'stop_lon': gtfs_stopdata['stop_lon'].to_f,
+      'scheduled_arrival_time': scheduled_arrival_time,
+      'actual_arrival_time': actual_arrival_time,
+      'actual_arrival_time_dow': actual_arrival_wday,
+      'actual_arrival_time_hour': actual_arrival_hour,
+      'arrival_time_diff': arrival_time_diff,
+      'shape_dist_traveled': gtfs_stoptimedata['shape_dist_traveled'],
+      'schedule_relationship': swiftly_tripdata['schedule_relationship']
     )
   end
 end
