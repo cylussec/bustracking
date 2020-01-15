@@ -1,0 +1,90 @@
+===
+I had some success getting sqlite installed by following along with oui-offline project
+
+====
+    echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>~/.bash_profile
+    echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile
+    echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile
+
+
+sudo apt-get install ruby-dev libsqlite3-dev
+linuxbrew-wrapper build-essential  libsqlite3-ruby
+sudo brew install gcc sqlite3
+
+
+
+/var/lib/gems/2.3.0/gems/sqlite3-1.4.2
+/opt/bitnami/logstash/vendor/bundle/jruby/2.5.0/gems/
+==
+/opt/bitnami/logstash/vendor/local_gems/4bd72e5a/sqlite3-1.3.13.20180326210955
+
+in gemfile: gem "sqlite3", "1.4.2", :path => "vendor/local_gems/28fb3945/sqlite3-1.4.2-x86_64-linux"
+
+
+======
+setup
+
+Install RVM
+https://github.com/rvm/ubuntu_rvm
+
+Install jruby
+https://github.com/jruby/jruby/wiki/GettingStarted
+
+sudo apt-get install libtool
+rvm pkg install libyaml
+rvm reinstall all --force
+
+
+jruby -S gem install tzinfo sequel activerecord-jdbcsqlite3-adapter
+sudo apt-get install libtool
+sudo apt-get install jruby
+
+( in gemfile, do
+gem 'activerecord', '~> 3.2.18'
+gem 'activerecord-jdbcsqlite3-adapter' # or :
+)
+
+
+wget https://github.com/sparklemotion/sqlite3-ruby/archive/master.zip
+unzip master.zip
+sudo apt install ruby sqlite3 ruby-dev libsqlite3-dev
+
+had to fix rake version error
+
+sudo gem install bundler
+cd ~/sqlite3-ruby-master/
+bundle install
+
+* fix version to 2.3 in /var/lib/gems/2.3.0/gems/rake-compiler-1.1.0/lib/rake/extensiontask.rb:515 *
+rake native gem
+
+===
+wget https://github.com/jruby/activerecord-jdbc-adapter/archive/v60.1.zip
+unzip v60.1.zip
+cd ~/activerecord-jdbc-adapter-60.1/
+bundle install
+rake native gems
+===
+* revert extensiontask *
+
+
+from /opt/bitnami/logstash$ sudo bin/logstash-plugin install --no-verify ~/sqlite3-ruby-master/pkg/sqlite3-1.4.2-x86_64-linux.gem
+
+
+test
+bin/logstash -f logstash.conf
+
+input { stdin { } }
+
+filter { ruby { code => "require 'sqlite3'" } }
+output
+{
+
+    elasticsearch
+    {
+        hosts => ["127.0.0.1:9200"]
+        document_id => "%{logstash_checksum}"
+        index => "logstash-%{+YYYY.MM.dd}"
+    }
+
+}
